@@ -5,9 +5,9 @@
     :style="{
       left: `${Slice.x}px`,
       top: `${Slice.y}px`,
-      width: `${Slice.width}px`,
-      height: `${Slice.height}px`,
+      width: `${width}px`,
       zIndex: props.zIndex,
+      'aspect-ratio': ' 1 / 1',
     }"
   >
     <div
@@ -27,10 +27,16 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  src: string;
-  zIndex?: number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    src: string;
+    zIndex?: number;
+    width?: number;
+  }>(),
+  {
+    width: 300
+  },
+);
 
 const Slice = (() => {
   const onMove = (deltaX: number, deltaY: number) => {
@@ -41,9 +47,6 @@ const Slice = (() => {
   const s = reactive({
     x: 100,
     y: 100,
-
-    width: 300,
-    height: 300,
 
     onMove,
   });

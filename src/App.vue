@@ -15,10 +15,10 @@ import kami1 from "@/assets/images/picture-album/kami_1.webp";
 import kami5 from "@/assets/images/picture-album/kami_5.webp";
 
 const onClick = (item) => {
-  s.list.forEach(item => {
-    item.zIndex = 0
-  })
-  item.zIndex++
+  s.list.forEach((item) => {
+    item.zIndex = 0;
+  });
+  item.zIndex++;
 };
 
 const s = reactive({
