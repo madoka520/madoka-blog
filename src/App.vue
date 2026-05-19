@@ -30,10 +30,10 @@ const s = reactive({
 </script>
 <style scoped lang="less">
 .demo {
-  position: absolute;
-
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-
   align-items: center;
   justify-content: center;
 }
