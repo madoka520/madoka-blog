@@ -6,14 +6,16 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(),
+  plugins: [
+    vue(),
     vueJsx(),
     AutoImport({
-      imports: ['vue', 'vue-router', '@vueuse/core', 'vue/macros'],
-      dts: 'auto-imports.d.ts',
-      dirs: ['src/utils/global'],
+      imports: ["vue", "vue-router", "@vueuse/core", "vue/macros"],
+      dts: "auto-imports.d.ts",
+      dirs: ["src/utils/global"],
       resolvers: [],
-    }),],
+    }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

@@ -3,8 +3,8 @@
     v-madoka-move="{ enabled: () => true, onMove: Slice.onMove }"
     class="slice-window"
     :style="{
-      left: `${Slice.x}px`,
-      top: `${Slice.y}px`,
+      left: `${xValue}px`,
+      top: `${yValue}px`,
       width: `${width}px`,
       zIndex: props.zIndex,
       'aspect-ratio': ' 1 / 1',
@@ -13,7 +13,7 @@
     <div
       class="slice-window__viewport"
       :style="{
-        transform: `translate(${-Slice.x}px, ${-Slice.y}px)`,
+        transform: `translate(${-xValue}px, ${-yValue}px)`,
       }"
     >
       <div
@@ -38,15 +38,21 @@ const props = withDefaults(
   },
 );
 
+const xValue = defineModel("x", {
+  default: 100
+})
+
+const yValue = defineModel("y", {
+  default: 100
+})
+
 const Slice = (() => {
   const onMove = (deltaX: number, deltaY: number) => {
-    s.x += deltaX;
-    s.y += deltaY;
+    xValue.value += deltaX;
+    yValue.value += deltaY;
   };
 
   const s = reactive({
-    x: 100,
-    y: 100,
 
     onMove,
   });

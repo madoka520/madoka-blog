@@ -23,7 +23,7 @@ const props = withDefaults(
 )
 
 const s = reactive({
-  style: {}
+  style: {} as any
 })
 
 onMounted(() => {
@@ -44,7 +44,7 @@ onMounted(() => {
 <style scoped lang="less">
 .line {
   position: fixed;
-  transition: transform 500ms ease-in-out;
+  transition: transform 1000ms ease-in-out;
 
   &.level {
 
@@ -56,6 +56,7 @@ onMounted(() => {
 
   &.vertical {
 
+    top: 0;
     width: 1px;
     height: 100%;
 
