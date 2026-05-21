@@ -53,7 +53,6 @@ const Slice = (() => {
   };
 
   const s = reactive({
-
     onMove,
   });
 
